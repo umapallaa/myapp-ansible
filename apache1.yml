@@ -1,0 +1,28 @@
+---
+-
+  become: true
+  hosts: slave1
+  tasks:
+    -
+      name: "Install pacages"
+      tags:
+        - install
+      apt:
+        name: apache2
+        state: present
+    -
+      name: "Start Apache Server"
+      service:
+        enabled: true
+        name: apache2
+        state: started
+      tags:
+        - start
+    -
+      copy:
+        dest: /var/www/html/
+        src: index.html
+      name: "Deploy static website"
+      tags:
+        - deploy
+
