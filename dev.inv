@@ -1,2 +1,2 @@
-[webservers]
+[slave1]
 3.110.114.50 ubuntu_user=ubuntu 
