@@ -1,25 +1,21 @@
 ---
--
-  become: true
-  hosts: slave1
+- hosts: webservers
+  become: True
   tasks:
-    -
-      name: "Install pacages"
+    - name: "Install pacages"
       tags:
         - install
       apt:
         name: apache2
         state: present
-    -
-      name: "Start Apache Server"
+    - name: "Start Apache Server"
       service:
-        enabled: true
+        enabled: True
         name: apache2
         state: started
       tags:
         - start
-    -
-      copy:
+    - copy:
         dest: /var/www/html/
         src: index.html
       name: "Deploy static website"
