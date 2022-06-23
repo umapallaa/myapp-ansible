@@ -1,7 +1,7 @@
 ---
 - 
   hosts: webservers
-  become: True
+  become: true
   tasks:
     - name: "Install pacages"
       tags:
@@ -12,7 +12,7 @@
     - 
       name: "Start Apache Server"
       service:
-        enabled: True
+        enabled: true
         name: apache2
         state: started
       tags:
