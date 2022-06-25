@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('git') {
+            steps {
+                git 'https://github.com/gudurushailesh/myapp-ansible.git'
+            }
+        }
+        stage('ansible') {
+            steps {
+                ansiblePlaybook credentialsId: 'ssh', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'apache1.yml'
+            }
+        }
+    }
+}
