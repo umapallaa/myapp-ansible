@@ -1,2 +1,2 @@
 [slave1]
-18.220.238.185 ansible_user=ubuntu 
+3.15.185.88 ansible_user=ubuntu 
